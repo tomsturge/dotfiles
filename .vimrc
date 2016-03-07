@@ -3,6 +3,7 @@ execute pathogen#infect()
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
+syntax on
 let g:solarized_termtrans=1
 
 " Make Vim more useful
@@ -49,7 +50,7 @@ syntax on
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
-set tabstop=2
+set softabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
