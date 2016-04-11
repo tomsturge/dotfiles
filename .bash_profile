@@ -51,15 +51,6 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-### Added by the HouseTrip HT command
-eval "$(/Users/tomsturge/.ht/bin/ht init -)"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-
-source ~/.private
 # added by Anaconda3 2.3.0 installer
 export PATH="//anaconda/bin:$PATH"
 

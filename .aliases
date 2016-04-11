@@ -19,16 +19,7 @@ alias apps="cd ~/apps"
 alias reshell="source ~/.bash_profile"
 alias note="notes && vim"
 
-# Housetrip Shortcuts
-alias app="cd ~/apps/housetrip-web-app"
-alias pb="git pivotal-branch"
-alias trans="./script/translations"
-alias b="bundle"
-alias be="bundle exec"
-alias ber="bundle exec rake"
-
 # Git Shortcuts
-alias git="hub"
 alias gs="git status -s"
 alias ga="git add"
 alias gl="git fetch && git pull"
