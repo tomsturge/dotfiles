@@ -21,8 +21,8 @@ alias note="notes && vim"
 
 # Git Shortcuts
 alias gs="git status -s"
-alias ga="git add"
 alias gl="git fetch && git pull"
+alias ga="gl && git add"
 alias gh="git push"
 alias go="git checkout"
 alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
