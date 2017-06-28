@@ -16,7 +16,6 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias apps="cd ~/apps"
-alias reshell="source ~/.bash_profile"
 alias note="notes && vim"
 
 # Git Shortcuts
