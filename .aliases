@@ -30,6 +30,8 @@ alias gd="git diff --color --color-words --abbrev"
 alias gca="git commit --amend"
 alias gsh="git show --pretty="format:" --name-only "
 alias pr="git fetch && git rebase -i origin/master && git pull-request"
+# Employment aliasses
+source ~/aliases/.edgefolio
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
