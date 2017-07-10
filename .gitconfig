@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-  name = Tom Sturge
-  email = tomsturge+github@gmail.com
+	name = Tom
+	email = tomsturge+github@gmail.com
 
 [apply]
 

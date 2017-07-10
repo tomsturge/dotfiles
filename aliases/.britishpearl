@@ -1,0 +1,11 @@
+# Directors
+alias pit='~/apps/britishpearl/pit'
+alias pip='~/apps/britishpearl/pip'
+
+# Setup
+# alias vup='conf && vagrant up && rm site.retry'
+# alias vre='conf && vagrant reload && rm site.retry'
+# alias vssh='conf && vagrant ssh'
+# alias ansifu='conf && ansible-playbook site.yml -i servers/edgefolio/local'
+# alias ansiup='ansifu --tags=update'
+# alias ansisk='ansifu  --skip-tags=webapp,update'
