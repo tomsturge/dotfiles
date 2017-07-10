@@ -1,6 +1,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -8,9 +11,6 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-# Path to your oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -44,6 +44,6 @@ POWERLEVEL9K_BATTERY_LOW_COLOR_FOREGROUND="red"
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
-export PATH="$PATH:./node_modules/.bin"
-
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+source $ZSH/oh-my-zsh.sh
