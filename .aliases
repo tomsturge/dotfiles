@@ -20,14 +20,9 @@ alias apps="cd ~/apps"
 alias note="notes && vim"
 
 # Git Shortcuts
-alias gs="git status -s"
 alias gl="git fetch && git pull"
 alias ga="gl && git add"
-alias gh="git push"
-alias go="git checkout"
-alias glol="git log --graph --decorate --pretty=oneline --abbrev-commit"
 alias gd="git diff --color --color-words --abbrev"
-alias gca="git commit --amend"
 alias gsh="git show --pretty="format:" --name-only "
 alias gmsg="git commit -m $1"
 
