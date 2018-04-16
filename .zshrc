@@ -5,8 +5,6 @@ export PATH="$HOME/bin:$PATH";
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
 
-eval $(dinghy env)
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -56,3 +54,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
+export PATH="/usr/local/sbin:$PATH"

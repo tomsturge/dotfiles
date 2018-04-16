@@ -1,6 +1,5 @@
 # Directors
 alias pit='~/apps/britishpearl/pit'
-alias pip='~/apps/britishpearl/pip'
 
 # Setup
 # alias vup='conf && vagrant up && rm site.retry'
