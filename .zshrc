@@ -1,6 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+source $HOME/.aliases
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
@@ -15,7 +17,7 @@ unset file;
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-plugins=(git github jira npm)
+plugins=(git github npm)
 
 # User configuration
 
@@ -53,6 +55,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="/usr/local/sbin:$PATH"
 export EDITOR=/usr/bin/code
 export VISUAL=/usr/bin/code
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
