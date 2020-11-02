@@ -47,6 +47,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export EDITOR=vi
 export VISUAL=vi
+export PATH=$HOME/.linuxbrew/bin:$PATH
+export PATH=$PATH:/snap/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
