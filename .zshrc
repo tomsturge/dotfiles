@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
@@ -15,37 +22,20 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git github npm)
+plugins=(
+  git 
+  github 
+  npm 
+  tmux 
+  zsh-syntax-highlighting 
+  zsh-autosuggestions
+)
 
 # User configuration
 
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{white}$(print $'\u279C') %F{white}"
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
-
-POWERLEVEL9K_HOME_FOLDER_ABBREVIATION=""
-# POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{black} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR') %F{black}"
-POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{black} $(print $'\uE0B1') %F{black}"
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="008"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="black"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_ICON=""
-
-POWERLEVEL9K_BATTERY_VERBOSE=false
-POWERLEVEL9K_BATTERY_ICON=""
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD=25
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND="blue"
-POWERLEVEL9K_BATTERY_LOW_COLOR_FOREGROUND="red"
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+ZSH_TMUX_AUTOSTART=true
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
@@ -55,7 +45,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export EDITOR=/usr/bin/code
-export VISUAL=/usr/bin/code
+export EDITOR=vi
+export VISUAL=vi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+emulate sh -c 'source /etc/profile'
+export PATH="$HOME/.tgenv/bin:$PATH"
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

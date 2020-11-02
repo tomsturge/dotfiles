@@ -1,0 +1,29 @@
+{
+    "editor.fontFamily": "'FuraCode Nerd Font', monospace",
+    "terminal.integrated.fontFamily": "'FuraCode Nerd Font', monospace",
+    "window.menuBarVisibility": "toggle",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.zoomLevel": 0,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.activityBar.visible": false,
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.statusBar.visible": true,
+    "aws.profile": "profile:prod"
+}
