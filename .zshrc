@@ -23,6 +23,7 @@ done;
 unset file;
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 plugins=(
   git 
@@ -35,7 +36,8 @@ plugins=(
 
 # User configuration
 
-ZSH_TMUX_AUTOSTART=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs aws nvm newline)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time nordvpn battery newline)
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
@@ -51,10 +53,13 @@ export PATH=$HOME/.linuxbrew/bin:$PATH
 export PATH=$PATH:/snap/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 emulate sh -c 'source /etc/profile'
 export PATH="$HOME/.tgenv/bin:$PATH"
-source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/tomsturge/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
