@@ -38,8 +38,10 @@ if [ "$DEV_MODE" = true ]; then
   ok "Dev packages stowed"
 fi
 
-# After --adopt, restore repo versions over any adopted local files
+# --adopt pulls conflicting files into the repo, overwriting our configs.
+# Discard those adopted changes, then restow to push repo versions out.
 info "Restoring repo config versions..."
+git -C "$DOTFILES_DIR" checkout -- .
 stow -d "$DOTFILES_DIR" -t "$HOME" -R "${STOW_PACKAGES[@]}"
 if [ "$DEV_MODE" = true ]; then
   stow -d "$DOTFILES_DIR" -t "$HOME" -R tmux-autostart
