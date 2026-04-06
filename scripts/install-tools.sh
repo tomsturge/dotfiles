@@ -65,9 +65,24 @@ install_linux() {
   if ! command -v fnm &> /dev/null; then
     info "Installing fnm..."
     curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    eval "$(fnm env)"
     ok "fnm installed"
   else
     ok "fnm already installed"
+  fi
+
+  # Node LTS via fnm
+  if command -v fnm &> /dev/null; then
+    eval "$(fnm env)"
+    if ! command -v node &> /dev/null; then
+      info "Installing Node LTS via fnm..."
+      fnm install --lts
+      fnm default lts-latest
+      ok "Node LTS installed"
+    else
+      ok "Node already installed via fnm"
+    fi
   fi
 
   # zoxide
@@ -112,17 +127,14 @@ install_linux() {
     ok "lazygit already installed"
   fi
 
-  # tldr (via npm once fnm is available)
+  # tldr
   if ! command -v tldr &> /dev/null; then
-    if command -v fnm &> /dev/null; then
-      eval "$(fnm env)"
-      if command -v node &> /dev/null; then
-        info "Installing tldr..."
-        npm install -g tldr
-        ok "tldr installed"
-      else
-        warn "Node not installed via fnm — skipping tldr. Run 'fnm install --lts' then 'npm i -g tldr'"
-      fi
+    if command -v node &> /dev/null; then
+      info "Installing tldr..."
+      npm install -g tldr
+      ok "tldr installed"
+    else
+      warn "Skipping tldr — Node not available"
     fi
   else
     ok "tldr already installed"
