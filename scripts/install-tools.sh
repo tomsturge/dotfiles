@@ -169,6 +169,13 @@ install_powerlevel10k() {
   else
     ok "Powerlevel10k already installed"
   fi
+
+  # Link into Oh My Zsh custom themes so ZSH_THEME can find it
+  local omz_themes="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+  if [ ! -e "$omz_themes" ]; then
+    ln -s "$HOME/powerlevel10k" "$omz_themes"
+    ok "Powerlevel10k linked into Oh My Zsh themes"
+  fi
 }
 
 install_tpm() {
