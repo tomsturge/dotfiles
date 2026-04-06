@@ -52,7 +52,8 @@ if [ $? != 0 ]; then
     tmux select-pane -t 1
     tmux split-window -v
 
-    # Send IP information to pane 0 (left pane)
+    # Wait for shell to initialise before sending welcome message
+    sleep 1
     tmux send-keys -t 0 "$IP_MESSAGE" Enter
 
     # Select the left pane (pane 0)
