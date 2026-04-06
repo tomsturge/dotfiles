@@ -79,7 +79,9 @@ install_linux() {
       info "Installing Node LTS via fnm..."
       fnm install --lts
       fnm default lts-latest
-      ok "Node LTS installed"
+      info "Updating npm to latest..."
+      npm install -g npm@latest
+      ok "Node LTS installed (npm updated)"
     else
       ok "Node already installed via fnm"
     fi
