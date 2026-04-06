@@ -83,7 +83,9 @@ install_linux() {
   if ! command -v delta &> /dev/null; then
     info "Installing git-delta..."
     local delta_version="0.18.2"
-    local delta_deb="git-delta_${delta_version}_amd64.deb"
+    local arch
+    arch="$(dpkg --print-architecture)"
+    local delta_deb="git-delta_${delta_version}_${arch}.deb"
     wget -q "https://github.com/dandavison/delta/releases/download/${delta_version}/${delta_deb}" -O "/tmp/${delta_deb}"
     sudo dpkg -i "/tmp/${delta_deb}"
     rm -f "/tmp/${delta_deb}"
@@ -95,8 +97,14 @@ install_linux() {
   # lazygit
   if ! command -v lazygit &> /dev/null; then
     info "Installing lazygit..."
+    local lazygit_arch
+    case "$(uname -m)" in
+      x86_64)  lazygit_arch="x86_64" ;;
+      aarch64) lazygit_arch="arm64" ;;
+      *)       lazygit_arch="$(uname -m)" ;;
+    esac
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-    curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_${lazygit_arch}.tar.gz"
     sudo tar xf /tmp/lazygit.tar.gz -C /usr/local/bin lazygit
     rm -f /tmp/lazygit.tar.gz
     ok "lazygit installed"
