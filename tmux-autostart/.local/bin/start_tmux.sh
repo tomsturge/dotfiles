@@ -6,21 +6,21 @@ SESSION_NAME="main"
 IP_INFO=$(ip -4 addr show ens160 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 # Prepare IP display message with colors and ASCII art
-IP_MESSAGE="clear && printf '\033[0;36m
-                  ⠀⠀⠀⠀⠀⠀⡶⠶⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⠀⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⣷⣿⣦⠙⠿⣶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⠾⠛⣉⣉⢹⡇⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⣿⣻⣿⣷⡄⠨⠛⠛⠛⣹⣿⠿⠛⠛⠶⢶⣤⣴⡿⠋⢀⣴⣾⣿⡿⢸⠇⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⠹⣜⣿⡿⠃⠀⠀⠀⠸⠋⠀⠀⠀⠀⠀⠀⠈⠛⠀⣰⣿⣿⣿⣿⠇⣾⠀⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⢀⣿⢯⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⠟⣸⠏⠀⠀⠀⠀
-                  ⠀⠀⠀⠀⢀⣴⡟⢁⣼⣿⣷⡀⠀⡄⠀⠀⠀⣠⣤⣤⣤⣀⠀⠀⠀⠀⠀⠻⣯⣴⠋⠀⠀⠀⠀⠀
-                  ⠀⠀⢀⣴⡿⠋⣰⣿⣿⠿⠙⣿⣴⠇⢀⣤⣾⣿⣿⣿⣿⣦⣉⠁⠀⠀⠀⠀⠘⢿⣄⠀⠀⠀⠀⠀
-                  ⠀⣠⣿⠟⠢⣼⣿⣿⣿⢀⣿⣿⣿⣴⣿⣿⡟⠁⢠⣬⣿⣿⣿⣷⣦⡀⠀⠀⠀⠈⢻⣦⠀⠀⠀⠀
-                  ⠸⢿⣷⡆⠀⢿⣿⣿⠿⣿⣿⣿⡿⠿⠿⣿⣷⣄⣐⣿⣿⣿⣿⣿⣿⣿⡷⠂⠀⠀⠀⠹⣷⡀⠀⠀
-                  ⠀⠀⠙⢿⣄⣴⣾⣷⣿⣿⡉⠀⠀⠀⠘⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠹⣿⡄⠀
-                  ⠀⠀⠀⠈⠻⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠈⠙⠿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⢑⣶⣶⣿⡿⠆
-                  ⠀⠀⠀⠀⠀⠘⢿⣧⣤⡀⠀⠀⠀⠀⢀⣶⣤⣀⡀⠀⠈⠉⠀⠀⠀⠀⠀⣀⣤⣶⡿⠟⠉⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⠀⠛⣿⣿⡿⠶⠶⠿⠛⠉⠀⢀⣀⣤⣀⣀⣤⣤⣶⠾⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀
-                  ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⣶⣶⣤⣶⠶⠟⠛⠛⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+IP_MESSAGE="clear && printf '
+\033[1;35m                  ⠀⠀⠀⠀⠀⠀⡶⠶⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⠀⠀⠀⠀
+\033[1;35m                  ⠀⠀⠀⠀⠀⠀⣷⣿⣦⠙⠿⣶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⠾⠛⣉⣉⢹⡇⠀⠀⠀
+\033[1;31m                  ⠀⠀⠀⠀⠀⠀⣿⣻⣿⣷⡄⠨⠛⠛⠛⣹⣿⠿⠛⠛⠶⢶⣤⣴⡿⠋⢀⣴⣾⣿⡿⢸⠇⠀⠀⠀
+\033[1;31m                  ⠀⠀⠀⠀⠀⠀⠹⣜⣿⡿⠃⠀⠀⠀⠸⠋⠀⠀⠀⠀⠀⠀⠈⠛⠀⣰⣿⣿⣿⣿⠇⣾⠀⠀⠀⠀
+\033[1;33m                  ⠀⠀⠀⠀⠀⠀⢀⣿⢯⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⠟⣸⠏⠀⠀⠀⠀
+\033[1;33m                  ⠀⠀⠀⠀⢀⣴⡟⢁⣼⣿⣷⡀⠀⡄⠀⠀⠀⣠⣤⣤⣤⣀⠀⠀⠀⠀⠀⠻⣯⣴⠋⠀⠀⠀⠀⠀
+\033[1;32m                  ⠀⠀⢀⣴⡿⠋⣰⣿⣿⠿⠙⣿⣴⠇⢀⣤⣾⣿⣿⣿⣿⣦⣉⠁⠀⠀⠀⠀⠘⢿⣄⠀⠀⠀⠀⠀
+\033[1;32m                  ⠀⣠⣿⠟⠢⣼⣿⣿⣿⢀⣿⣿⣿⣴⣿⣿⡟⠁⢠⣬⣿⣿⣿⣷⣦⡀⠀⠀⠀⠈⢻⣦⠀⠀⠀⠀
+\033[1;36m                  ⠸⢿⣷⡆⠀⢿⣿⣿⠿⣿⣿⣿⡿⠿⠿⣿⣷⣄⣐⣿⣿⣿⣿⣿⣿⣿⡷⠂⠀⠀⠀⠹⣷⡀⠀⠀
+\033[1;36m                  ⠀⠀⠙⢿⣄⣴⣾⣷⣿⣿⡉⠀⠀⠀⠘⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠹⣿⡄⠀
+\033[1;34m                  ⠀⠀⠀⠈⠻⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠈⠙⠿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⢑⣶⣶⣿⡿⠆
+\033[1;34m                  ⠀⠀⠀⠀⠀⠘⢿⣧⣤⡀⠀⠀⠀⠀⢀⣶⣤⣀⡀⠀⠈⠉⠀⠀⠀⠀⠀⣀⣤⣶⡿⠟⠉⠀⠀⠀
+\033[1;35m                  ⠀⠀⠀⠀⠀⠀⠀⠛⣿⣿⡿⠶⠶⠿⠛⠉⠀⢀⣀⣤⣀⣀⣤⣤⣶⠾⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀
+\033[1;35m                  ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⣶⣶⣤⣶⠶⠟⠛⠛⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 \033[0m
 \033[0;36m         ╔══════════════════════════════════════════════════════╗
          ║                                                      ║
@@ -45,19 +45,18 @@ if [ $? != 0 ]; then
     # Create new session
     tmux new-session -d -s $SESSION_NAME
 
-    # Split window vertically (creates left and right panes)
+    # Split window vertically (creates left pane 1 and right pane 2)
     tmux split-window -h -t $SESSION_NAME
 
-    # Select the right pane and split it horizontally
-    tmux select-pane -t 1
-    tmux split-window -v
+    # Already on right pane (2) — split it horizontally
+    tmux split-window -v -t $SESSION_NAME
 
     # Wait for shell to initialise before sending welcome message
     sleep 1
-    tmux send-keys -t 0 "$IP_MESSAGE" Enter
+    tmux send-keys -t ${SESSION_NAME}:1.1 "$IP_MESSAGE" Enter
 
-    # Select the left pane (pane 0)
-    tmux select-pane -t 0
+    # Select the left pane (pane 1)
+    tmux select-pane -t ${SESSION_NAME}:1.1
 fi
 
 # Attach to session
